@@ -19,9 +19,14 @@ public class MainPage {
         PageFactory.initElements(driver, this);
     }
 
-
     @FindBy(id = "rcc-confirm-button")
     private  WebElement cookieButton;
+
+    @FindBy(xpath =  ".//*[@class='Button_Button__ra12g']")
+    private  WebElement orderTopBotton;
+
+    @FindBy(xpath =  ".//*[@class='Button_Button__ra12g Button_Middle__1CSJM']")
+    private  WebElement orderBottomBotton;
 
     @FindBy(id = "accordion__heading-0")
     private  WebElement question_1;
@@ -54,38 +59,56 @@ public class MainPage {
         cookieButton.click();
     }
 
-    public void CheckResponse() {
+    public void ClickOrderTopBotton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.className("Button_Button__ra12g")));
+        orderTopBotton.click();
+    }
+
+    public void ClickOrderBottomBotton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='Button_Button__ra12g Button_Middle__1CSJM']")));
+        orderBottomBotton.click();
+    }
+
+    public void CheckOneQuestion() {
         question_1.click();
         String actualText = driver.findElement(By.id("accordion__panel-0")).getText();
         Assert.assertEquals(actualText, "Сутки — 400 рублей. Оплата курьеру — наличными или картой.");
     }
-
-
-
-
-    /*public void checkResponse(WebElement question, String expectedText) {
-        // Прокручиваем страницу к элементу
-        scrollToElement(question);
-
-        // Кликаем по вопросу
-        question.click();
-
-        // Ожидаем появления панели
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement panel = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='accordion__panel-" + question.getAttribute("id").substring(question.getAttribute("id").lastIndexOf("-") + 1) + "']")));
-
-        // Получаем текст и сравниваем
-        String actualText = panel.getText();
-        Assert.assertEquals(expectedText, actualText);
+    public void CheckTwoQuestion() {
+        question_2.click();
+        String actualText = driver.findElement(By.id("accordion__panel-1")).getText();
+        Assert.assertEquals(actualText, "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.");
     }
-
-    private void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    public void CheckThreeQuestion() {
+        question_3.click();
+        String actualText = driver.findElement(By.id("accordion__panel-2")).getText();
+        Assert.assertEquals(actualText, "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.");
     }
-
-    *//* public void checkResponse() {
-        checkResponse(question_1, "Сутки — 400 рублей. Оплата курьеру — наличными или картой.");
-    }*/
-
+    public void CheckFourQuestion() {
+        question_4.click();
+        String actualText = driver.findElement(By.id("accordion__panel-3")).getText();
+        Assert.assertEquals(actualText, "Только начиная с завтрашнего дня. Но скоро станем расторопнее.");
+    }
+    public void CheckFiveQuestion() {
+        question_5.click();
+        String actualText = driver.findElement(By.id("accordion__panel-4")).getText();
+        Assert.assertEquals(actualText, "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.");
+    }
+    public void CheckSixQuestion() {
+        question_6.click();
+        String actualText = driver.findElement(By.id("accordion__panel-5")).getText();
+        Assert.assertEquals(actualText, "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.");
+    }
+    public void CheckSevenQuestion() {
+        question_7.click();
+        String actualText = driver.findElement(By.id("accordion__panel-6")).getText();
+        Assert.assertEquals(actualText, "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.");
+    }
+    public void CheckEightQuestion() {
+        question_8.click();
+        String actualText = driver.findElement(By.id("accordion__panel-7")).getText();
+        Assert.assertEquals(actualText, "Да, обязательно. Всем самокатов! И Москве, и Московской области.");
+    }
 }

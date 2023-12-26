@@ -15,14 +15,21 @@ public class QuestionsAndAnswersTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
     }
-
     @Test
-    public void loginTest() {
+    public void ImportantQuestionTests() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         MainPage MainPage = new MainPage(driver);
         MainPage.AcceptCookies();
-        MainPage.CheckResponse();
+        MainPage.CheckOneQuestion();
+        MainPage.CheckTwoQuestion();
+        MainPage.CheckThreeQuestion();
+        MainPage.CheckFourQuestion();
+        MainPage.CheckFiveQuestion();
+        MainPage.CheckSixQuestion();
+        MainPage.CheckSevenQuestion();
+        MainPage.CheckEightQuestion();
 
+        MainPage.ClickOrderBottomBotton();
     }
 
 
