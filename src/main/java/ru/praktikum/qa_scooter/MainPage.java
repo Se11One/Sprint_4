@@ -70,45 +70,44 @@ public class MainPage {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='Button_Button__ra12g Button_Middle__1CSJM']")));
         orderBottomBotton.click();
     }
-
-    public void CheckOneQuestion() {
+    public void CheckOneQuestion(String expectText) {
         question_1.click();
         String actualText = driver.findElement(By.id("accordion__panel-0")).getText();
-        Assert.assertEquals(actualText, "Сутки — 400 рублей. Оплата курьеру — наличными или картой.");
+        Assert.assertEquals(actualText, expectText);
     }
-    public void CheckTwoQuestion() {
+    public void CheckTwoQuestion(String expectText) {
         question_2.click();
         String actualText = driver.findElement(By.id("accordion__panel-1")).getText();
-        Assert.assertEquals(actualText, "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.");
+        Assert.assertEquals(actualText, expectText);
     }
-    public void CheckThreeQuestion() {
+    public void CheckThreeQuestion(String expectText) {
         question_3.click();
         String actualText = driver.findElement(By.id("accordion__panel-2")).getText();
-        Assert.assertEquals(actualText, "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.");
+        Assert.assertEquals(actualText, expectText);
     }
-    public void CheckFourQuestion() {
+    public void CheckFourQuestion(String expectText) {
         question_4.click();
         String actualText = driver.findElement(By.id("accordion__panel-3")).getText();
-        Assert.assertEquals(actualText, "Только начиная с завтрашнего дня. Но скоро станем расторопнее.");
+        Assert.assertEquals(actualText, expectText);
     }
-    public void CheckFiveQuestion() {
+    public void CheckFiveQuestion(String expectText) {
         question_5.click();
         String actualText = driver.findElement(By.id("accordion__panel-4")).getText();
-        Assert.assertEquals(actualText, "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.");
+        Assert.assertEquals(actualText, expectText);
     }
-    public void CheckSixQuestion() {
+    public void CheckSixQuestion(String expectText) {
         question_6.click();
         String actualText = driver.findElement(By.id("accordion__panel-5")).getText();
-        Assert.assertEquals(actualText, "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.");
+        Assert.assertEquals(actualText, expectText);
     }
-    public void CheckSevenQuestion() {
+    public void CheckSevenQuestion(String expectText) {
         question_7.click();
         String actualText = driver.findElement(By.id("accordion__panel-6")).getText();
-        Assert.assertEquals(actualText, "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.");
+        Assert.assertEquals(actualText, expectText);
     }
-    public void CheckEightQuestion() {
+    public void CheckEightQuestion(String expectText) {
         question_8.click();
         String actualText = driver.findElement(By.id("accordion__panel-7")).getText();
-        Assert.assertEquals(actualText, "Да, обязательно. Всем самокатов! И Москве, и Московской области.");
+        Assert.assertEquals(actualText, expectText);
     }
 }
