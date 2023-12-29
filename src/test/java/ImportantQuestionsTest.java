@@ -1,12 +1,12 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ru.praktikum.qa_scooter.CustomerPage;
 import ru.praktikum.qa_scooter.MainPage;
 
-public class ScooterTest {
+public class ImportantQuestionsTest {
 
     WebDriver driver;
 
@@ -16,14 +16,16 @@ public class ScooterTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
     }
-    /*@After
+
+    @After
     public void tearDown() {
         // Закрытие браузера после завершения теста
         if (driver != null) {
             driver.quit();
         }
-    }*/
-    /*@Test
+    }
+
+    @Test
     public void ImportantQuestionTests() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         MainPage MainPage = new MainPage(driver);
@@ -36,18 +38,5 @@ public class ScooterTest {
         MainPage.CheckSixQuestion("Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.");
         MainPage.CheckSevenQuestion("Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.");
         MainPage.CheckEightQuestion("Да, обязательно. Всем самокатов! И Москве, и Московской области.");
-    }*/
-
-    @Test
-    public void OrderScooterForTopBotton() {
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-        MainPage MainPage = new MainPage(driver);
-        MainPage.AcceptCookies();
-        MainPage.ClickOrderTopBotton();
-        CustomerPage CustomerPage = new CustomerPage(driver);
-        CustomerPage.FillingCustomerForm("Питер","Паркер","Нью Йорк", "Сокольники", "42121234567");
     }
-
-
-
 }
