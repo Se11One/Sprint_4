@@ -29,86 +29,58 @@ public class MainPage {
     @FindBy(xpath =  ".//*[@class='Button_Button__ra12g Button_Middle__1CSJM']")
     private  WebElement orderBottomBotton;
 
-    @FindBy(id = "accordion__heading-0")
-    private  WebElement question_1;
+    @FindBy(xpath = ".//*[@id='accordion__heading-0']")
+    private  WebElement question1;
 
     @FindBy(xpath = ".//*[@id='accordion__heading-1']")
-    private WebElement question_2;
+    private WebElement question2;
 
     @FindBy(xpath = ".//*[@id='accordion__heading-2']")
-    private WebElement question_3;
+    private WebElement question3;
 
     @FindBy(xpath = ".//*[@id='accordion__heading-3']")
-    private WebElement question_4;
+    private WebElement question4;
 
     @FindBy(xpath = ".//*[@id='accordion__heading-4']")
-    private WebElement question_5;
+    private WebElement question5;
 
     @FindBy(xpath = ".//*[@id='accordion__heading-5']")
-    private WebElement question_6;
+    private WebElement question6;
 
     @FindBy(xpath = ".//*[@id='accordion__heading-6']")
-    private WebElement question_7;
+    private WebElement question7;
 
     @FindBy(xpath = ".//*[@id='accordion__heading-7']")
-    private WebElement question_8;
+    private WebElement question8;
 
 
-    public void AcceptCookies() {
+    public void acceptCookies() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.id("rcc-confirm-button")));
         cookieButton.click();
     }
 
-    public void ClickOrderTopBotton() {
+    public void clickOrderTopBotton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.className("Button_Button__ra12g")));
         orderTopBotton.click();
     }
 
-    public void ClickOrderBottomBotton() {
+    public void clickOrderBottomBotton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@class='Button_Button__ra12g Button_Middle__1CSJM']")));
         orderBottomBotton.click();
     }
-    public void CheckOneQuestion(String expectText) {
-        question_1.click();
-        String actualText = driver.findElement(By.id("accordion__panel-0")).getText();
-        Assert.assertEquals(actualText, expectText);
-    }
-    public void CheckTwoQuestion(String expectText) {
-        question_2.click();
-        String actualText = driver.findElement(By.id("accordion__panel-1")).getText();
-        Assert.assertEquals(actualText, expectText);
-    }
-    public void CheckThreeQuestion(String expectText) {
-        question_3.click();
-        String actualText = driver.findElement(By.id("accordion__panel-2")).getText();
-        Assert.assertEquals(actualText, expectText);
-    }
-    public void CheckFourQuestion(String expectText) {
-        question_4.click();
-        String actualText = driver.findElement(By.id("accordion__panel-3")).getText();
-        Assert.assertEquals(actualText, expectText);
-    }
-    public void CheckFiveQuestion(String expectText) {
-        question_5.click();
-        String actualText = driver.findElement(By.id("accordion__panel-4")).getText();
-        Assert.assertEquals(actualText, expectText);
-    }
-    public void CheckSixQuestion(String expectText) {
-        question_6.click();
-        String actualText = driver.findElement(By.id("accordion__panel-5")).getText();
-        Assert.assertEquals(actualText, expectText);
-    }
-    public void CheckSevenQuestion(String expectText) {
-        question_7.click();
-        String actualText = driver.findElement(By.id("accordion__panel-6")).getText();
-        Assert.assertEquals(actualText, expectText);
-    }
-    public void CheckEightQuestion(String expectText) {
-        question_8.click();
-        String actualText = driver.findElement(By.id("accordion__panel-7")).getText();
+
+    public void checkOverQuestion(int numberQuest, String expectText) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement questionElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='accordion__heading-" + (numberQuest - 1) + "']")));
+        questionElement.click();
+
+        WebElement panelElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='accordion__panel-" + (numberQuest - 1) + "']")));
+
+        String actualText = panelElement.getText();
         Assert.assertEquals(actualText, expectText);
     }
 }

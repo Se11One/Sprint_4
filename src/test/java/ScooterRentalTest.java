@@ -59,20 +59,40 @@ public class ScooterRentalTest {
     @Test
     public void OrderScooterForTopButton() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
-        MainPage MainPage = new MainPage(driver);
-        MainPage.AcceptCookies();
-        MainPage.ClickOrderTopBotton();
+        MainPage mainPage = new MainPage(driver);
+        mainPage.acceptCookies();
+        mainPage.clickOrderTopBotton();
 
-        CustomerPage CustomerPage = new CustomerPage(driver);
-        CustomerPage.FillingCustomerForm(firstName, lastName, orderAddress, metroStation, customerPhone);
+        CustomerPage customerPage = new CustomerPage(driver);
+        customerPage.fillingCustomerForm(firstName, lastName, orderAddress, metroStation, customerPhone);
 
-        AboutRentPage AboutRentPage = new AboutRentPage(driver);
-        AboutRentPage.FillingAboutRentForm(deliveryDate, periodInput, scooterColor, "Привет");
+        AboutRentPage aboutRentPage = new AboutRentPage(driver);
+        aboutRentPage.fillingAboutRentForm(deliveryDate, periodInput, scooterColor, "Привет");
 
-        PopUpAcceptOrderPage PopUpAcceptOrderPage = new PopUpAcceptOrderPage(driver);
-        PopUpAcceptOrderPage.ActionButton("Да");
+        PopUpAcceptOrderPage popUpAcceptOrderPage = new PopUpAcceptOrderPage(driver);
+        popUpAcceptOrderPage.actionButton("Да");
 
-        PopUpOrderIsProcessed PopUpOrderIsProcessed = new PopUpOrderIsProcessed(driver);
-        PopUpOrderIsProcessed.CheckOrderStatus();
+        PopUpOrderIsProcessed popUpOrderIsProcessed = new PopUpOrderIsProcessed(driver);
+        popUpOrderIsProcessed.checkOrderStatus();
+    }
+
+    @Test
+    public void OrderScooterForBottomButton() {
+        driver.get("https://qa-scooter.praktikum-services.ru/");
+        MainPage mainPage = new MainPage(driver);
+        mainPage.acceptCookies();
+        mainPage.clickOrderBottomBotton();
+
+        CustomerPage customerPage = new CustomerPage(driver);
+        customerPage.fillingCustomerForm(firstName, lastName, orderAddress, metroStation, customerPhone);
+
+        AboutRentPage aboutRentPage = new AboutRentPage(driver);
+        aboutRentPage.fillingAboutRentForm(deliveryDate, periodInput, scooterColor, "Привет");
+
+        PopUpAcceptOrderPage popUpAcceptOrderPage = new PopUpAcceptOrderPage(driver);
+        popUpAcceptOrderPage.actionButton("Да");
+
+        PopUpOrderIsProcessed popUpOrderIsProcessed = new PopUpOrderIsProcessed(driver);
+        popUpOrderIsProcessed.checkOrderStatus();
     }
 }

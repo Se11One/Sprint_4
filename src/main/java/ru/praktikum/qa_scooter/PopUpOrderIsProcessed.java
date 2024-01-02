@@ -19,7 +19,7 @@ public class PopUpOrderIsProcessed {
     @FindBy(xpath = ".//div[@class='Order_ModalHeader__3FDaJ']")
     private  WebElement orderStatus;
 
-    public void CheckOrderStatus() {
+    public void checkOrderStatus() {
 
         String actualText = orderStatus.getText();
         // Ожидаемый текст

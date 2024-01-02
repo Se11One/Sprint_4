@@ -24,7 +24,7 @@ public class AboutRentPage {
     @FindBy(xpath = ".//div[@class='Order_Buttons__1xGrp']/button[2]")
     private WebElement orderButton;
 
-    public void FillingAboutRentForm(String deliveryDate, String  periodInput, String scooterColor, String comment){
+    public void fillingAboutRentForm(String deliveryDate, String  periodInput, String scooterColor, String comment){
         deliveryDateInput.sendKeys(deliveryDate);
 
         orderButton.click();

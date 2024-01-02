@@ -22,7 +22,7 @@ public class PopUpAcceptOrderPage {
     private WebElement agreeButton;
 
 
-    public void ActionButton(String nameButton) {
+    public void actionButton(String nameButton) {
         WebElement actionButton = driver.findElement(By.xpath(".//button[text()='" + nameButton + "']"));
         actionButton.click();
     }
