@@ -57,7 +57,7 @@ public class ScooterRentalTest {
     }
 
     @Test
-    public void OrderScooterForTopButton() {
+    public void orderScooterForTopButton() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         MainPage mainPage = new MainPage(driver);
         mainPage.acceptCookies();
@@ -77,7 +77,7 @@ public class ScooterRentalTest {
     }
 
     @Test
-    public void OrderScooterForBottomButton() {
+    public void orderScooterForBottomButton() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         MainPage mainPage = new MainPage(driver);
         mainPage.acceptCookies();
