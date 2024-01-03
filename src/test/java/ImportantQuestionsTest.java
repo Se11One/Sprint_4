@@ -53,7 +53,7 @@ public class ImportantQuestionsTest {
     }
 
     @Test
-    public void ImportantQuestionTests() {
+    public void importantQuestionTests() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         MainPage mainPage = new MainPage(driver);
         mainPage.acceptCookies();
